@@ -16,3 +16,5 @@ function wpm (valor) {
             centro.style.display = (centro.style.display == 'none' ? 'block' : 'none');
         }, valor);
 }
+
+    

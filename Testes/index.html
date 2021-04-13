@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIGEIR</title>
+</head>
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .bg-texto {
+            background-color: aqua;
+            width: 500px;
+            height: 200px;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+    <textarea id="fonte" cols="30" rows="5" onchange="trocaTexto()"></textarea>
+
+    <div class="bg-texto">
+        <h1 id="core">Texto</h1>
+    </div>
+
+    <button onclick="wpm(200)">200</button>
+    <button onclick="wpm(500)">500</button>
+    <button onclick="wpm(1000)">1000</button>
+    <button onclick="wpm('x')">Reset</button>
+
+    <script src="./gear.js"></script>
+    
+</body>
+</html>
