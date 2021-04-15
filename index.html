@@ -55,6 +55,15 @@
             top: 5vh;
         }
 
+        .icon:hover {
+            cursor: default;
+        }
+
+        .icon i:hover {
+            /* cursor: pointer; */
+            cursor: alias;
+        }
+
         .meio {
             text-align: center;
             margin-bottom: 19vh;
@@ -68,8 +77,6 @@
             border-radius: 15px;
             padding: 10px;
             text-align: center;
-            
-            
         }
 
         .meio textarea:focus {
@@ -83,7 +90,10 @@
             background-color: white;
             display: none;
             color: #000000;
-            
+        }
+
+        #div-interna {
+            margin-top: 50px;
         }
 
         footer {
@@ -99,8 +109,8 @@
 
     <section>
         <div class="icon">
-            <i class="fa fa-book" onclick="pageChangeRead()" aria-hidden="true"></i> 
             <i class="fa fa-pencil" onclick="pageChangeWrite()" aria-hidden="true"></i>
+            <i class="fa fa-book" onclick="pageChangeRead()" aria-hidden="true"></i> 
         </div>
 
         <div class="topo">
@@ -115,7 +125,6 @@
             <textarea cols="70" rows="10" onchange="pegaTexto()" placeholder="Insira seu texto aqui." autofocus id="campo-texto"></textarea>
             <div class="fonte">
                 <div id="div-interna">
-                    O texto de teste
                 </div>
             </div>
         </div>
@@ -145,12 +154,31 @@
             area[0].style.display = "none"
         }
         function pegaTexto() {
-            var texto = campo.value
-            di.innerText = texto
+            var ti = campo.value
+            // di.innerText = texto
+            // var ti = di.innerText
+            var textFull = ti.replaceAll("\n", " ")
 
-            freq = setInterval(function() {
-            di.style.display = (di.style.display == 'none' ? 'block' : 'none');
-            }, 200)
+            var arr = textFull.split(" ")
+            var pos = 0
+
+            freq = setInterval(
+                function() {
+                    di.innerText = arr[pos]
+
+                    di.style.display = (di.style.display == 'none' ? 'block' : 'none');
+                    di.style.display = (di.style.display == 'none' ? 'block' : 'none');
+
+                    if(pos >= arr.length-1) {
+                        clearInterval(freq)
+                        pos = 0;
+                    }
+                    // else if (pos == arr.length-1) {
+                    //     di.innerText = "FIM"
+                    // }
+                    else 
+                        pos++
+            }, 135)
         }
 
     </script>
